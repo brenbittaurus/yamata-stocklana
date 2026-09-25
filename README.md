@@ -1,8 +1,6 @@
-# Stocklana by Yamata
+**Yamata is building the Universal Credit Account for on-chain markets — an account layer that turns eligible financial positions into risk-adjusted Buying Power that can be reused across integrated markets**
 
-**One portfolio. One Buying Power balance. Every eligible position.**
-
-Stocklana is a Solana implementation of Yamata's **Universal Credit Account** — an account layer that turns eligible on-chain financial positions into risk-adjusted Buying Power that can be reused across integrated markets.
+For the Stocklana hackathon, Yamata demonstrates this on Solana using tokenized stocks and Stock Strikes.
 
 Instead of forcing the user to manually move between a wallet, lending venue, execution venue and portfolio tools, Yamata coordinates the underlying markets and presents them as one account.
 
