@@ -1,0 +1,121 @@
+{
+  "description": "Curated verification extract; not a raw run log or independently signed timing attestation.",
+  "cluster": "mainnet-beta",
+  "runStartedAt": "2026-09-23T18:17:30.520Z",
+  "successfulSamples": 1,
+  "unsuccessfulAttemptsExcludedFromSample": true,
+  "timingStart": "Confirm click on prepared-account benchmark page",
+  "timingEnd": "QQQx rendered on benchmark page",
+  "clock": "Application Date.now wall-clock observations; not chain-finalization timing or a cross-clock precision guarantee",
+  "milestones": [
+    {
+      "stage": "T0_confirm",
+      "elapsedMs": 0
+    },
+    {
+      "stage": "T1_construction_complete",
+      "elapsedMs": 775
+    },
+    {
+      "stage": "T2_signing_complete",
+      "elapsedMs": 1127,
+      "signature": "3rUEferuZeTPT439RmsrE7s3PbFGywn1mkzvZbhXb3QdcEPJMh29eSG48Eyf55vWzj58JpKexL2Uqqx3VWyP2Q16"
+    },
+    {
+      "stage": "T3_kamino_submitted",
+      "elapsedMs": 1170,
+      "signature": "3rUEferuZeTPT439RmsrE7s3PbFGywn1mkzvZbhXb3QdcEPJMh29eSG48Eyf55vWzj58JpKexL2Uqqx3VWyP2Q16"
+    },
+    {
+      "stage": "kamino_confirmed",
+      "elapsedMs": 1411,
+      "signature": "3rUEferuZeTPT439RmsrE7s3PbFGywn1mkzvZbhXb3QdcEPJMh29eSG48Eyf55vWzj58JpKexL2Uqqx3VWyP2Q16"
+    },
+    {
+      "stage": "T4_tsla_collateral_recognized",
+      "elapsedMs": 2690,
+      "signature": "3rUEferuZeTPT439RmsrE7s3PbFGywn1mkzvZbhXb3QdcEPJMh29eSG48Eyf55vWzj58JpKexL2Uqqx3VWyP2Q16"
+    },
+    {
+      "stage": "T5_borrowed_usdc_available",
+      "elapsedMs": 2690,
+      "signature": "3rUEferuZeTPT439RmsrE7s3PbFGywn1mkzvZbhXb3QdcEPJMh29eSG48Eyf55vWzj58JpKexL2Uqqx3VWyP2Q16"
+    },
+    {
+      "stage": "swap_construction_complete",
+      "elapsedMs": 3080
+    },
+    {
+      "stage": "swap_signing_complete",
+      "elapsedMs": 3332,
+      "signature": "4pgrETruQM3Jn8SLuLi9uBpbtVXntBzPMpsFwCFLCgEBSR7KaxVcfXKCR3LxgRuk3gFzWMnMwqKcSXxYD2iVJtog"
+    },
+    {
+      "stage": "T6_raydium_submitted",
+      "elapsedMs": 3377,
+      "signature": "4pgrETruQM3Jn8SLuLi9uBpbtVXntBzPMpsFwCFLCgEBSR7KaxVcfXKCR3LxgRuk3gFzWMnMwqKcSXxYD2iVJtog"
+    },
+    {
+      "stage": "swap_confirmed",
+      "elapsedMs": 3767,
+      "signature": "4pgrETruQM3Jn8SLuLi9uBpbtVXntBzPMpsFwCFLCgEBSR7KaxVcfXKCR3LxgRuk3gFzWMnMwqKcSXxYD2iVJtog"
+    },
+    {
+      "stage": "T7_qqq_acquired",
+      "elapsedMs": 4477,
+      "signature": "4pgrETruQM3Jn8SLuLi9uBpbtVXntBzPMpsFwCFLCgEBSR7KaxVcfXKCR3LxgRuk3gFzWMnMwqKcSXxYD2iVJtog"
+    },
+    {
+      "stage": "T9_external_account_current",
+      "elapsedMs": 4669
+    },
+    {
+      "stage": "T8_qqq_visible",
+      "elapsedMs": 4700
+    }
+  ],
+  "transactions": [
+    {
+      "signature": "3rUEferuZeTPT439RmsrE7s3PbFGywn1mkzvZbhXb3QdcEPJMh29eSG48Eyf55vWzj58JpKexL2Uqqx3VWyP2Q16",
+      "slot": 449782073,
+      "blockTime": 1790187451,
+      "finalizedRpcVerificationAt": "2026-09-25T11:53:24.535Z",
+      "error": null,
+      "explorerUrl": "https://explorer.solana.com/tx/3rUEferuZeTPT439RmsrE7s3PbFGywn1mkzvZbhXb3QdcEPJMh29eSG48Eyf55vWzj58JpKexL2Uqqx3VWyP2Q16?cluster=mainnet-beta"
+    },
+    {
+      "signature": "4pgrETruQM3Jn8SLuLi9uBpbtVXntBzPMpsFwCFLCgEBSR7KaxVcfXKCR3LxgRuk3gFzWMnMwqKcSXxYD2iVJtog",
+      "slot": 449782082,
+      "blockTime": 1790187453,
+      "finalizedRpcVerificationAt": "2026-09-25T11:53:24.535Z",
+      "error": null,
+      "explorerUrl": "https://explorer.solana.com/tx/4pgrETruQM3Jn8SLuLi9uBpbtVXntBzPMpsFwCFLCgEBSR7KaxVcfXKCR3LxgRuk3gFzWMnMwqKcSXxYD2iVJtog?cluster=mainnet-beta"
+    }
+  ],
+  "funding": {
+    "collateralTransferredTslaRaw": "131656769",
+    "tslaDecimals": 8,
+    "principalBorrowedUsdcRaw": "200000000",
+    "usdcSpentRaw": "200000000",
+    "usdcDecimals": 6,
+    "qqqReceivedRaw": "26888667",
+    "qqqDecimals": 8,
+    "qqqBaseAmount": "0.26888667",
+    "qqqUiMultiplierAtSample": 1.0034560758968376,
+    "qqqDisplayedAtSample": "0.26981596",
+    "qqqCollateralized": false
+  },
+  "supportingHistoricalSnapshotChecks": {
+    "yamataLpBalanceUnchanged": true,
+    "nativeYamataDebtUnchanged": true,
+    "yamataProgramAndRelevantAccountsAbsentFromBothTransactions": true
+  },
+  "caveats": [
+    "Returning/authenticated wallet; empty accounts prepared before timing.",
+    "One successful sample; no average, median, p95, reliability or comparative-speed claim.",
+    "Not fresh-wallet onboarding or finalized latency.",
+    "External account reconciliation, not native Yamata dashboard Buying Power.",
+    "Two sequential transactions; not atomic end-to-end.",
+    "Snapshot comparisons supplement, and are not encoded by, a single transaction."
+  ]
+}
