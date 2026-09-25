@@ -12,7 +12,7 @@ Instead of forcing the user to manually move between a wallet, lending venue, ex
 
 | Resource | Link |
 |---|---|
-| **Live App** | [stocklana.yamata.io](https://stocklana.yamata.io) |
+| **Live App** | [stocklana.yamata.io/app](https://stocklana.yamata.io/app) |
 | **Pitch Deck** | [View the deck](https://docsend.com/view/uvk6skupzjn8dpu3) |
 | **Demo / Technical Walkthrough** | [Watch the walkthrough](https://youtu.be/WdUl8vnYkAQ) |
 
@@ -117,4 +117,4 @@ The recorded TSLA > $375 example bought and pledged **50 Above shares for 20 dUS
 
 **One portfolio. One Buying Power balance. Every eligible position.**
 
-[Open Stocklana](https://stocklana.yamata.io) · [Watch the walkthrough](https://youtu.be/WdUl8vnYkAQ) · [View the pitch deck](https://docsend.com/view/uvk6skupzjn8dpu3)
+[Open Stocklana](https://stocklana.yamata.io/app) · [Watch the walkthrough](https://youtu.be/WdUl8vnYkAQ) · [View the pitch deck](https://docsend.com/view/uvk6skupzjn8dpu3)
