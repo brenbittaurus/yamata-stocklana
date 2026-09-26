@@ -19,7 +19,7 @@ Two Stock Strikes programs coexist on Devnet. Every market belongs to exactly on
 | tsla-375-2026-10-16 | TSLA > $375 | [`Bjnr7q6SsLVMc3t5RwZWrUMdPtCGYtAeBfs4hA2K9uxX`](https://explorer.solana.com/address/Bjnr7q6SsLVMc3t5RwZWrUMdPtCGYtAeBfs4hA2K9uxX?cluster=devnet) |
 | tsla-400-2026-10-16 | TSLA > $400 | [`FnLbZLKTfy9FYwjyVxwFbB56UeuxKGRA8LXG7sq1AUgG`](https://explorer.solana.com/address/FnLbZLKTfy9FYwjyVxwFbB56UeuxKGRA8LXG7sq1AUgG?cluster=devnet) |
 
-The three registry entries are neither retired nor test markets. Finalized account reads on 2026-09-26 showed all three **open and unresolved**, owned by the companion program, with the listed vault identities and times, and each vault pre-funded with 2,000 dUSDC. “Active” is a registry/account-state observation, not a guarantee of an executable quote or sufficient liquidity at a later time. Market creation, mint/vault setup, opening, house mid and vault funding transactions are recorded in the application registry (`core/stocklana/state/strikes.json` of the private source).
+The three registry entries are neither retired nor test markets. Finalized account reads on 2026-09-26 showed all three **open and unresolved**, owned by the companion program, with the listed vault identities and times, and each vault pre-funded with 2,000 dUSDC. “Active” is a registry/account-state observation, not a guarantee of an executable quote or sufficient liquidity at a later time.
 
 ## Expiry and settlement rule
 

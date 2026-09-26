@@ -1,6 +1,6 @@
 # Notice
 
-Stocklana is a Yamata project. Rights in the materials remain with their respective rights holders.
+This repository is Yamata's Stocklana hackathon submission. Rights in the materials remain with their respective rights holders.
 
 Public blockchain transactions referenced in this repository can be inspected through the linked explorers.
 

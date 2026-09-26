@@ -36,7 +36,7 @@ The protocols may be composable.
 
 The **account experience is not**.
 
-Stocklana explores what happens when those separate markets are made to feel like one brokerage-style account.
+For the Stocklana hackathon, Yamata explores what happens when those separate markets are made to feel like one brokerage-style account.
 
 ## The Yamata model
 
@@ -62,7 +62,7 @@ Buying Power reflects recognized collateral, risk treatment, outstanding debt, r
 
 ## From an existing position to the next trade
 
-Stocklana brings the account model to tokenized public stocks and structured positions on Solana.
+For Stocklana, Yamata brings the account model to tokenized public stocks and structured positions on Solana.
 
 - **Use existing positions.** Eligible stock collateral can support the next purchase.
 - **Put Buying Power to work.** Buy, copy a specific trade, or trade through the account experience.
