@@ -74,9 +74,23 @@ The curated events and exact signature association are in [docs/benchmark-sample
 | Component | Verified executable program |
 |---|---|
 | Yamata native credit account | [`7WxJUn3DiwfbU9PMAopXYUbRYKUzVTDnmZnVTUK7x1kL`](https://explorer.solana.com/address/7WxJUn3DiwfbU9PMAopXYUbRYKUzVTDnmZnVTUK7x1kL?cluster=devnet) |
-| Stock Strikes | [`zYmxwyYvT47LtUqD5dkY8v82mzxKUduVnnkecQnZwow`](https://explorer.solana.com/address/zYmxwyYvT47LtUqD5dkY8v82mzxKUduVnnkecQnZwow?cluster=devnet) |
+| Stock Strikes — hardened companion (active October 16 series) | [`FP1A5Lk4ZZ8gcxC6c2qx3aeyjZAhcc7JrKVqrJNvnMhg`](https://explorer.solana.com/address/FP1A5Lk4ZZ8gcxC6c2qx3aeyjZAhcc7JrKVqrJNvnMhg?cluster=devnet) — deploy [`2WidGs6v…`](https://explorer.solana.com/tx/2WidGs6vbkpZhrmESaYkeLHnzwv4jqsrcrpmgRAPCkHxqpCHCE2KMexX34b39igWLi32vveqUmsuqqJDdsLmH3Tx?cluster=devnet), ProgramData [`Ef8QNSC23AaqJCptrKabZfSDfW8gqqM7xeATaX1aDyce`](https://explorer.solana.com/address/Ef8QNSC23AaqJCptrKabZfSDfW8gqqM7xeATaX1aDyce?cluster=devnet) |
+| Stock Strikes — legacy (retired October 2 / October 9 series) | [`zYmxwyYvT47LtUqD5dkY8v82mzxKUduVnnkecQnZwow`](https://explorer.solana.com/address/zYmxwyYvT47LtUqD5dkY8v82mzxKUduVnnkecQnZwow?cluster=devnet) |
 
-Both were returned as executable accounts under Solana's upgradeable loader. The three active market accounts in [STOCK_STRIKES.md](STOCK_STRIKES.md) are owned by the listed Stock Strikes program. This verifies account identity, not a reproducible build or source-to-bytecode equivalence.
+All three were returned as executable accounts under Solana's upgradeable loader. The three active market accounts in [STOCK_STRIKES.md](STOCK_STRIKES.md) are owned by the companion program; retired markets remain owned by the legacy program. For the companion program, the on-chain ProgramData bytes (offset 45 onward, 453,904 bytes) hash to SHA-256 `033de1be4219dfae366859eb62c5c462fa317190bca008c225c8b879f63d4182`, equal to the artifact built from the reviewed source with Solana platform tools; this is a byte-for-byte artifact match, not an independent reproducible-build attestation. The legacy program's bytecode (SHA-256 `3a3f205f666df986dc39f03e841f671316a842aa0a6152606cf0568302ecd9ed`, 471,624 bytes) was not modified.
+
+### Closed-market judge journey (2026-09-26, US equity market closed)
+
+A brand-new Devnet wallet [`2pt1XtnAKLC7kDxt7Nt3fpaS3945EQgLj12p8FNEUbYE`](https://explorer.solana.com/address/2pt1XtnAKLC7kDxt7Nt3fpaS3945EQgLj12p8FNEUbYE?cluster=devnet) completed the whole path through the public application on a Saturday:
+
+| Step | Transaction | Recorded values |
+|---|---|---|
+| Credit-funded QQQx purchase, deposit and pledge | [`y7Pp3mKo…`](https://explorer.solana.com/tx/y7Pp3mKonWVGtMxUsqepbpgFtemXcxUQ1bSXj8iVPkzWtZ6BQUY7SXaQRxZ29ZnvDSF7itvhprWHnbhFRam7ShX?cluster=devnet) | 200 dUSDC drawn from credit; Raydium execution price $756.74; Pyth reference $744.41 (last regular-session print, 2026-09-25 19:59:59 UTC); expected 0.264290 QQQx, minimum 0.261647 QQQx; debt +200 dUSDC |
+| TSLA > $375 Above purchase and pledge (companion program) | [`5QtHNWia…`](https://explorer.solana.com/tx/5QtHNWiaENLDEAJBu1eDfFf2QdSYNKgVwD5ukAyZUBbEBKqJibi4oqP44zj91sA7WEPVbrcBv9vxposDNp1u2dBJ?cluster=devnet) | 50 shares for 20 dUSDC cash; 6.75 dUSDC pre-decay collateral contribution |
+| Native debt repayment | [`22or5Eyi…`](https://explorer.solana.com/tx/22or5EyiVgJNv4kDR3bSXaYXtYXfT7f9zydr4wmHPhhdShDBq4EyFhAjgP8BfFJKUXofVXbnxWtd1fk9kBdo9Zq8?cluster=devnet) | 200 dUSDC repaid; debt after 0 |
+| Pledged Strike sale (release + house fill) | [`3Z3qtkDQ…`](https://explorer.solana.com/tx/3Z3qtkDQdhAgNWJMJAWtVtnnUgMTSufMCK8S2dAbEcJfgimZixzbDFNHV11Lihjw9UZJpugAvZwiYVyzxhDEWp5n?cluster=devnet) | 50 shares sold at the 0.36 dUSDC bid for 18 dUSDC |
+
+The application's execution price came from the Raydium Devnet pool curve; the Pyth value acted only as the independent reference for collateral marks and the 3% execution/reference divergence guard. See [ARCHITECTURE.md](ARCHITECTURE.md#prices-execution-versus-reference).
 
 ### Native stock-mirror credit trade
 

@@ -55,6 +55,17 @@ House bid/ask quotes price the Above/Below contracts. A supported buy can atomic
 
 Pyth supplies the underlying TSLA reference and settlement observation; house quotes price the Strike contracts. Resolution is authority-mediated under the configured dispute process, not independently verified on-chain as the first eligible Pyth observation. See [STOCK_STRIKES.md](STOCK_STRIKES.md).
 
+## Prices: execution versus reference
+
+Two prices exist and are never conflated:
+
+- **Execution price** is the actual Raydium pool curve (reserves and fees). The quote's expected quantity is the curve output, the minimum quantity is the slippage bound, and the fill is whatever the pool returns.
+- **Reference price** is Pyth's `Equity.US.<SYMBOL>/USD` feed. It is the independent risk input for collateral marks, the 3% execution/reference divergence guard and Strike settlement. It never sets the execution price.
+
+On Devnet the reference is market-session aware. During the regular NYSE session a fresh Pyth print (300-second bound, 2% confidence bound) is required. When the market is closed — weekends, holidays, pre- and after-hours — the reference is the **last print of the most recently completed regular session**, fetched at the session's final second and accepted only if it was published inside that session. After-hours prints, earlier sessions and calendar gaps fail closed; the exception ends at the next regular open, when a fresh print is required again. The application labels this state "Market closed · Last regular-session reference" and never calls it a live price. The pool can still trade while the market is closed, but if it drifts beyond the divergence guard the market is paused rather than the guard relaxed.
+
+TSLA and QQQ references are entitled on the current Pyth key. NVDA and SPY are not (Hermes returns HTTP 403) and are shown as unavailable rather than substituted.
+
 ## Buying Power, collateral and debt
 
 1. Eligibility means an asset **may** qualify under a policy; it does not mean credit has been drawn.

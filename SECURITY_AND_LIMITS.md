@@ -30,7 +30,7 @@ Kamino is a separate lender with its own collateral, interest and liquidation ru
 | Oracle and RPC dependence | Stale, unavailable or inconsistent data can block valuation or reconciliation. This package makes no uptime claim. |
 | Strike house pricing | Exit liquidity, spreads and capacity are house-dependent. An underlying equity price does not ensure the contract can be sold at a displayed mark. |
 | Strike resolution authority | Settlement is authority-mediated and Pyth-referenced, not independently verified on-chain as the first eligible Pyth observation. |
-| Upgradeable deployments | The verified Devnet programs are executable accounts owned by the upgradeable loader. This package does not establish immutability or independently audit upgrade governance. |
+| Upgradeable deployments | The verified Devnet programs are executable accounts owned by the upgradeable loader. The active Stock Strikes companion program's deployed bytecode matches the reviewed build artifact byte-for-byte; the legacy program is unchanged. This package does not establish immutability or independently audit upgrade governance. |
 | Devnet fixtures | Mirrors, dUSDC, house liquidity and demonstration limits are not Mainnet economic assurance. Devnet state and availability can change. |
 
 ## Performance and coverage limits
@@ -41,7 +41,7 @@ The acquired Mainnet QQQx was not automatically collateralized. Native Devnet de
 
 ## Evidence and access
 
-No independent security audit, production security certification or reproducible source-to-deployed-bytecode match is claimed. The live product is [stocklana.yamata.io](https://stocklana.yamata.io); viewing linked blockchain evidence requires no wallet connection or transaction.
+No independent security audit or production security certification is claimed. The active Stock Strikes companion program's deployed bytecode is a byte-for-byte match with the reviewed build artifact; no other program is claimed as source-matched. The live product is [stocklana.yamata.io](https://stocklana.yamata.io); viewing linked blockchain evidence requires no wallet connection or transaction.
 
 Public transaction links reveal public participants and activity. This repository does not include private wallet labels, unrelated balances, signing material or operational configuration.
 

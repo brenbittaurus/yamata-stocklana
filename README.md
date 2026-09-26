@@ -12,9 +12,10 @@ Instead of forcing the user to manually move between a wallet, lending venue, ex
 
 | Resource | Link |
 |---|---|
-| **Live App** | [stocklana.yamata.io/app](https://stocklana.yamata.io/app) |
-| **Pitch Deck** | [View the deck](https://docsend.com/view/uvk6skupzjn8dpu3) |
-| **Demo / Technical Walkthrough** | [Watch the walkthrough](https://youtu.be/WdUl8vnYkAQ) |
+| **Live Devnet app** | [stocklana.yamata.io/app](https://stocklana.yamata.io/app) — a brand-new wallet can activate a free demo account and complete the whole flow, including on weekends |
+| **Pitch video** | [Watch the pitch](https://youtu.be/ifmmrmmPfwU) |
+| **Demo / technical walkthrough** | [Watch the walkthrough](https://youtu.be/WdUl8vnYkAQ) |
+| **Pitch deck** | [View the deck](https://docsend.com/view/uvk6skupzjn8dpu3) |
 
 ## The problem
 
@@ -74,7 +75,7 @@ Stocklana brings the account model to tokenized public stocks and structured pos
 |---|---|---|
 | **Mainnet** | Real TSLAx collateral → Kamino credit → Raydium QQQx purchase | [Collateral + borrow](https://explorer.solana.com/tx/3rUEferuZeTPT439RmsrE7s3PbFGywn1mkzvZbhXb3QdcEPJMh29eSG48Eyf55vWzj58JpKexL2Uqqx3VWyP2Q16?cluster=mainnet-beta) · [QQQx purchase](https://explorer.solana.com/tx/4pgrETruQM3Jn8SLuLi9uBpbtVXntBzPMpsFwCFLCgEBSR7KaxVcfXKCR3LxgRuk3gFzWMnMwqKcSXxYD2iVJtog?cluster=mainnet-beta) |
 | **Devnet** | Native credit draw → swap → automatic deposit → pledge → refreshed Buying Power | [Trade transaction](https://explorer.solana.com/tx/3mUWh4JPBEwtGgQ4zgxt8Nmfriy2XpmNoGnPt45nwUYuqWg8hkLRKV6Xhtr8D4MCjZ9jsPAAx9SuDQQ8RqpgCgqj?cluster=devnet) · [Account flow](ARCHITECTURE.md#b-devnet--native-yamata-account-and-automatic-depositpledge) |
-| **Devnet** | Stock Strike purchase → deposit → pledge → resolution-aware contribution | [Buy and pledge](https://explorer.solana.com/tx/s8xgAxVXHrhYauqKVbZbxs1GLCeqoZdAcuiRTp9AoSAxVFnti7EpjkHYDhqt5vGp4ToFfz4Q5jqPFFSxwhJAqDM?cluster=devnet) · [Strike policy](STOCK_STRIKES.md#verified-native-collateral-policy) |
+| **Devnet** | Stock Strike purchase → deposit → pledge → resolution-aware contribution → repayment → pledged exit (closed market, hardened companion program) | [Buy and pledge](https://explorer.solana.com/tx/5QtHNWiaENLDEAJBu1eDfFf2QdSYNKgVwD5ukAyZUBbEBKqJibi4oqP44zj91sA7WEPVbrcBv9vxposDNp1u2dBJ?cluster=devnet) · [Repay](https://explorer.solana.com/tx/22or5EyiVgJNv4kDR3bSXaYXtYXfT7f9zydr4wmHPhhdShDBq4EyFhAjgP8BfFJKUXofVXbnxWtd1fk9kBdo9Zq8?cluster=devnet) · [Sell](https://explorer.solana.com/tx/3Z3qtkDQdhAgNWJMJAWtVtnnUgMTSufMCK8S2dAbEcJfgimZixzbDFNHV11Lihjw9UZJpugAvZwiYVyzxhDEWp5n?cluster=devnet) · [Strike policy](STOCK_STRIKES.md#verified-native-collateral-policy) |
 
 ### Mainnet measurement: 4.7 seconds
 
@@ -86,9 +87,9 @@ In the recorded Mainnet sample, **4.7 seconds elapsed from Confirm to QQQx appea
 
 Stock Strikes are **Above / Below contracts on an equity reference**. They extend the account model beyond spot holdings to eligible positions with a future payoff.
 
-In the Devnet demonstration, unresolved Strike positions are valued from the house exit bid, with a haircut and collateral factor that declines as settlement approaches. **Pyth supplies the underlying equity reference and settlement observation; house quotes price the Strike contracts.**
+In the Devnet demonstration, unresolved Strike positions are valued from the house exit bid, with a haircut and collateral factor that declines as settlement approaches. **Pyth supplies the underlying equity reference and settlement observation; house quotes price the Strike contracts.** The active October 16 series runs on a hardened companion program whose deployed bytecode matches the reviewed source byte-for-byte; the earlier series stay on the original program.
 
-The recorded TSLA > $375 example bought and pledged **50 Above shares for 20 dUSDC**. At the recorded house bid and pre-decay policy, those shares contributed **6.75 dUSDC** toward the native credit ceiling.
+The recorded TSLA > $375 example bought and pledged **50 Above shares for 20 dUSDC** while the US market was closed. At the recorded house bid and pre-decay policy, those shares contributed **6.75 dUSDC** toward the native credit ceiling; the same account then repaid its debt and sold the shares back through the account.
 
 [Explore Stock Strikes](STOCK_STRIKES.md) · [View the historical resolution and redemption](ONCHAIN_PROOF.md#historical-test-market-resolution-and-redemption)
 
@@ -100,7 +101,7 @@ The recorded TSLA > $375 example bought and pledged **50 Above shares for 20 dUS
 | **Solana** | On-chain accounts, token custody and transaction execution. |
 | **Kamino** | External collateral and USDC credit in the Mainnet flow. |
 | **Raydium** | Tokenized-stock swap execution. |
-| **Pyth** | Underlying equity reference prices and Stock Strike settlement observations. |
+| **Pyth** | Independent underlying equity reference (fresh prints in session, last regular-session print when closed) and Stock Strike settlement observations. Never the execution price. |
 | **Stock Strikes** | Resolution-aware structured positions in the Devnet portfolio. |
 
 ## Explore the submission
@@ -117,4 +118,4 @@ The recorded TSLA > $375 example bought and pledged **50 Above shares for 20 dUS
 
 **One portfolio. One Buying Power balance. Every eligible position.**
 
-[Open Stocklana](https://stocklana.yamata.io/app) · [Watch the walkthrough](https://youtu.be/WdUl8vnYkAQ) · [View the pitch deck](https://docsend.com/view/uvk6skupzjn8dpu3)
+[Open the Devnet app](https://stocklana.yamata.io/app) · [Watch the pitch](https://youtu.be/ifmmrmmPfwU) · [Watch the walkthrough](https://youtu.be/WdUl8vnYkAQ) · [View the pitch deck](https://docsend.com/view/uvk6skupzjn8dpu3)
